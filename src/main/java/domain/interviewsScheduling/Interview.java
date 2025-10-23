@@ -49,7 +49,7 @@ public class Interview {
         this.positionId=positionId;
     }
 
-    public int id (){
+    public int getId (){
         return id;
     }
     public ZonedDateTime getDateTime (){
