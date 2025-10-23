@@ -27,7 +27,7 @@ public class Interview {
     protected Interview() {}
 
 
-    public Interview(int id, ZonedDateTime dateTime, int interviewerId, int candidateId, int positionId, String location) {
+    public Interview(int id, ZonedDateTime dateTime, int interviewerId, int candidateId, int positionId, InterviewStatus status) {
         this.id = id;
         this.dateTime = dateTime;
         this.interviewerId = interviewerId;
@@ -52,16 +52,16 @@ public class Interview {
     public int id (){
         return id;
     }
-    public ZonedDateTime dateTime (){
+    public ZonedDateTime getDateTime (){
         return dateTime;
     }
-    public int interviewerId (){
+    public int getInterviewerId (){
         return interviewerId;
     }
-    public int candidateId (){
+    public int getCandidateId (){
         return candidateId;
     }
-    public int positionId (){
+    public int getPositionId (){
         return positionId;
     }
 
