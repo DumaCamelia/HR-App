@@ -1,4 +1,10 @@
 package domain.notification;
 
-public class NotificationType {
+public enum NotificationType {
+    INTERVIEW_SCHEDULED,
+    INTERVIEW_UPDATED,
+    INTERVIEW_CANCELLED,
+    INTERVIEW_REMINDER,
+    APPLICATION_ACCEPTED,
+    APPLICATION_REJECTED
 }

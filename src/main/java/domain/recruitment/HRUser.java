@@ -4,18 +4,19 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 public class HRUser {
-    private String id;
+    private int id;
     private String name;
     private String email;
 
     protected HRUser() {}
-    public HRUser(String id, String name, String email, String passwordHash) {
+
+    public HRUser(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public String getId(){
+    public int getId(){
         return id;
     }
 
@@ -27,7 +28,8 @@ public class HRUser {
         return email;
     }
 
-    public void setId(String newId){
+
+    public void setId(int newId){
         id = newId;
     }
 
@@ -39,10 +41,4 @@ public class HRUser {
         email = newEmail;
     }
 
-    /*
-    Method that registeres a scheduled interview
-     */
-    public void scheduleInterview(Candidate candidate, ZonedDateTime time){
-        candidate.scheduleInterview();
-    }
 }

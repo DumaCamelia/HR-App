@@ -11,9 +11,6 @@ public class Position {
     private String requirements;
     private PositionStatus status;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime closedAt;
-
 
     protected Position() {}
 
@@ -23,26 +20,33 @@ public class Position {
         this.title = title;
         this.description = description;
         this.requirements = requirements;
-        this.status = PositionStatus.OPEN;
-        this.createdAt = LocalDateTime.now();
+        this.status = PositionStatus.CREATED;
+        LocalDateTime createdAt = LocalDateTime.now();
     }
 
-    public void openPosition() {
-        this.status = PositionStatus.OPEN;
+    public String openPosition (){
+        if (status != PositionStatus.CREATED && status != PositionStatus.CLOSED){
+            return "Position must be created or closed to open.";
+        }
+        status = PositionStatus.OPEN;
+        return "Success!";
     }
 
-    public void startRecruitment() {
+    public String startRecruitment() {
         if (this.status != PositionStatus.OPEN) {
-            throw new IllegalStateException("Recruitment can only start from OPEN state.");
+            return "Recruitment can only start from OPEN state.";
         }
         this.status = PositionStatus.IN_RECRUITMENT;
+        return "Success";
     }
 
-    public void closePosition() {
+    public String closePosition() {
         if (this.status == PositionStatus.CLOSED) {
-            throw new IllegalStateException("Position is already closed.");
+            return "Position is already closed.";
         }
         this.status = PositionStatus.CLOSED;
+        LocalDateTime closedAt = LocalDateTime.now();
+        return "Success!";
     }
 
     public void setId (int id) {
@@ -58,7 +62,6 @@ public class Position {
         this.requirements=requirements;
     }
 
-    //am inteles ca la positionstatus n ar trebui sa am setter, doar getter
 
     public PositionStatus getStatus() {
         return status;

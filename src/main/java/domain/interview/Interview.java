@@ -1,4 +1,4 @@
-package domain.interviewsScheduling;
+package domain.interview;
 
 import java.time.ZonedDateTime;
 
@@ -10,18 +10,20 @@ public class Interview {
     private int positionId;
     private InterviewStatus status;
 
-    public void StartInterview(){
+    public String StartInterview(){
         if(status != InterviewStatus.SCHEDULED){
-            throw new IllegalStateException("The interview must be scheduled!");
+            return "The interview must be scheduled!";
         }
         status = InterviewStatus.IN_PROGRESS;
+        return "Success";
     }
 
-    public void FinishedInterview(){
+    public String FinishedInterview(){
         if(status != InterviewStatus.IN_PROGRESS){
-            throw new IllegalStateException("The interview must be in progress!");
+            return "The interview must be in progress!";
         }
         status = InterviewStatus.FINISHED;
+        return "Success";
     }
 
     protected Interview() {}
