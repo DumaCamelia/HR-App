@@ -1,10 +1,10 @@
 package app;
 
-import domain.assessmentEvaluation.Evaluation;
-import domain.assessmentEvaluation.EvaluationType;
+import domain.evaluation.Evaluation;
+import domain.evaluation.EvaluationType;
 import domain.recruitment.Candidate;
 import domain.recruitment.CandidateRepository;
-import domain.assessmentEvaluation.EvaluationRepository;
+import domain.evaluation.EvaluationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -22,8 +22,8 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        candidateRepository.save(new Candidate(1, "Ana", "Ana.simaicum@gmail.com", "00784739213", "folder/altFolder/DanDiaconescu.pdf"));
-        candidateRepository.save(new Candidate(2, "Cornel", "Cornel.cinealtu@gmail.com", "00784739212", "folder/altFolder/JustitiaruDeBerceni.pdf"));
+        candidateRepository.save(new Candidate(1, "Ana", "Ana.simaicum@gmail.com", "00784739213", "folder/altFolder/DanDiaconescu.pdf", LocalDateTime.now()));
+        candidateRepository.save(new Candidate(2, "Cornel", "Cornel.cinealtu@gmail.com", "00784739212", "folder/altFolder/JustitiaruDeBerceni.pdf", LocalDateTime.now()));
 
         candidateRepository.findAll().forEach(c -> System.out.println(c.getName() + ": " + c.getStatus()));
 
