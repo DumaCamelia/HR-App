@@ -27,8 +27,14 @@ public class Position {
         this.createdAt = LocalDateTime.now();
     }
 
-    public void openPosition() {
+    public boolean openPosition() {
+        if(status != PositionStatus.CREATED && status != PositionStatus.CLOSED){
+            System.out.println("The position must be created or closed to open");
+            return false;
+        }
         this.status = PositionStatus.OPEN;
+        System.out.println("Position opened successfully!");
+        return true;
     }
 
     public void startRecruitment() {

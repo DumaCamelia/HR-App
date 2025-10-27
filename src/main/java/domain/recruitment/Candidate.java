@@ -1,8 +1,12 @@
 package domain.recruitment;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity
 public class Candidate {
+    @Id
     private int id;
     private String name;
     private String email;

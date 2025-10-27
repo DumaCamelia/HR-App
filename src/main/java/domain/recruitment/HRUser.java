@@ -38,11 +38,4 @@ public class HRUser {
     public void setEmail(String newEmail){
         email = newEmail;
     }
-
-    /*
-    Method that registeres a scheduled interview
-     */
-    public void scheduleInterview(Candidate candidate, ZonedDateTime time){
-        candidate.scheduleInterview();
-    }
 }
