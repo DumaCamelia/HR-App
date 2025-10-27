@@ -37,21 +37,23 @@ public class Position {
         return true;
     }
 
-    public String startRecruitment() {
+    public boolean startRecruitment() {
         if (this.status != PositionStatus.OPEN) {
-            return "Recruitment can only start from OPEN state.";
+            System.out.println("Recruitment can only start from OPEN state.");
+            return false;
         }
         this.status = PositionStatus.IN_RECRUITMENT;
-        return "Success";
+        return true;
     }
 
-    public String closePosition() {
+    public boolean closePosition() {
         if (this.status == PositionStatus.CLOSED) {
-            return "Position is already closed.";
+            System.out.println("Position is already closed.");
+            return false;
         }
         this.status = PositionStatus.CLOSED;
         LocalDateTime closedAt = LocalDateTime.now();
-        return "Success!";
+        return true;
     }
 
     public void setId (int id) {
@@ -67,7 +69,7 @@ public class Position {
         this.requirements=requirements;
     }
 
-    //am inteles ca la positionstatus n ar trebui sa am setter, doar getter
+
 
     public PositionStatus getStatus() {
         return status;

@@ -41,7 +41,8 @@ public class HRUser {
         email = newEmail;
     }
 
-    /*
-    Method that registeres a scheduled interview
-     */
+
+    public void scheduleInterview(Candidate candidate, ZonedDateTime time){
+        candidate.scheduleInterviewCandidate();
+    }
 }
