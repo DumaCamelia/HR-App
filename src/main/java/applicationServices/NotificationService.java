@@ -1,4 +1,4 @@
-package domain.notification;
+package applicationServices;
 
 public class NotificationService {
 }

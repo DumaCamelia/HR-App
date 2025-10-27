@@ -13,48 +13,50 @@ public class Candidate {
     private String phone;
     private String cvFile;
     private CandidateStatus status;
-
     private LocalDateTime createdAt;
-    private LocalDateTime appliedAt;
-    private LocalDateTime updatedAt;
-
     public Candidate() {}
 
-    public Candidate(int id, String name, String email, String phone, String cvFile) {
+    public Candidate(int id, String name, String email, String phone, String cvFile, LocalDateTime created) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.cvFile = cvFile;
-        this.status = CandidateStatus.APPLIED;
+        this.status = CandidateStatus.CREATED;
+        this.createdAt = LocalDateTime.now();;
     }
 
-    public void applyCandidate(){
+    public String applyCandidate(){
         if(id == 0 || name.isEmpty() || email.isEmpty() || phone.isEmpty() || cvFile == null){
-            throw new IllegalStateException("Candidate's data is incomplete!");
+            return "Candidate's data is incomplete!";
         }
         status = CandidateStatus.APPLIED;
+        LocalDateTime appliedAt = LocalDateTime.now();
+        return "Success!";
     }
 
-    public void scheduleInterview(){
+    public String scheduleInterviewCandidate(){
         if(status != CandidateStatus.APPLIED){
-            throw new IllegalStateException("Candidate's status must be APPLIED!");
+            return "Candidate's status must be APPLIED!";
         }
         status = CandidateStatus.INTERVIEWED;
+        return "Success!";
     }
 
-    public void hire(){
+    public String hireCandidate(){
         if(status != CandidateStatus.INTERVIEWED){
-            throw new IllegalStateException("Candidate's status must be INTERVIEWED!");
+            return "Candidate's status must be INTERVIEWED!";
         }
         status = CandidateStatus.HIRED;
+        return "Success!";
     }
 
-    public void reject(){
+    public String rejectCandidate(){
         if(status != CandidateStatus.INTERVIEWED){
-            throw new IllegalStateException("Candidate's status must be INTERVIEWED!");
+            return "Candidate's status must be INTERVIEWED!";
         }
         status = CandidateStatus.REJECTED;
+        return "Success!";
     }
 
     public void setId (int id) {
