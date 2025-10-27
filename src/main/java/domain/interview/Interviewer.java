@@ -43,13 +43,14 @@ public class Interviewer {
     public void setScheduledAt(LocalDateTime scheduledAt) { this.scheduledAt = scheduledAt; }
     public void setStatus(InterviewStatus status) { this.status = status; }
 
-    public String reschedule(LocalDateTime newDate) {
+    public boolean reschedule(LocalDateTime newDate) {
         if (status == InterviewStatus.CANCELLED || status == InterviewStatus.COMPLETED) {
-            return "Cannot reschedule a cancelled or completed interview.";
+            System.out.println("Cannot reschedule a cancelled or completed interview.");
+            return false;
         }
         this.scheduledAt = newDate;
         this.status = InterviewStatus.RESCHEDULED;
-        return "Success";
+        return true;
     }
 
     public void cancel() {

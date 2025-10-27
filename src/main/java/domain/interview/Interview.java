@@ -10,20 +10,22 @@ public class Interview {
     private int positionId;
     private InterviewStatus status;
 
-    public String StartInterview(){
+    public boolean StartInterview(){
         if(status != InterviewStatus.SCHEDULED){
-            return "The interview must be scheduled!";
+            System.out.println("The interview must be scheduled!");
+            return false;
         }
         status = InterviewStatus.IN_PROGRESS;
-        return "Success";
+        return true;
     }
 
-    public String FinishedInterview(){
+    public boolean FinishedInterview(){
         if(status != InterviewStatus.IN_PROGRESS){
-            return "The interview must be in progress!";
+            System.out.println("The interview must be in progress!");
+            return false;
         }
         status = InterviewStatus.FINISHED;
-        return "Success";
+        return true;
     }
 
     protected Interview() {}

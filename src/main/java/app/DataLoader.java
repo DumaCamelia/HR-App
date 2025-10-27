@@ -22,13 +22,13 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        candidateRepository.save(new Candidate(1, "Ana", "Ana.simaicum@gmail.com", "00784739213", "folder/altFolder/DanDiaconescu.pdf", LocalDateTime.now()));
-        candidateRepository.save(new Candidate(2, "Cornel", "Cornel.cinealtu@gmail.com", "00784739212", "folder/altFolder/JustitiaruDeBerceni.pdf", LocalDateTime.now()));
+        candidateRepository.save(new Candidate(1, "Ana", "Ana.simaicum@gmail.com", "00784739213", "folder/altFolder/DanDiaconescu.pdf"));
+        candidateRepository.save(new Candidate(2, "Cornel", "Cornel.cinealtu@gmail.com", "00784739212", "folder/altFolder/JustitiaruDeBerceni.pdf"));
 
         candidateRepository.findAll().forEach(c -> System.out.println(c.getName() + ": " + c.getStatus()));
 
-        evaluationRepository.save(new Evaluation("Marius", 100, "Un baiat de nota 10!", EvaluationType.HR_INTERVIEW, LocalDateTime.now()));
-        evaluationRepository.save(new Evaluation("Marius", 100, "Nimic de reprosat!", EvaluationType.TECHNICAL_INTERVIEW, LocalDateTime.now()));
+        evaluationRepository.save(new Evaluation("Andrei", 100, "Un baiat de nota 10!", EvaluationType.HR_INTERVIEW, LocalDateTime.now()));
+        evaluationRepository.save(new Evaluation("Andrei", 100, "Nimic de reprosat!", EvaluationType.TECHNICAL_INTERVIEW, LocalDateTime.now()));
         evaluationRepository.findAll().forEach(evaluation -> System.out.println(evaluation.getCandidateName() + "'s evaluation: " + evaluation.getFeedback()));
     }
 }

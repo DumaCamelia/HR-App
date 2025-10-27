@@ -13,50 +13,54 @@ public class Candidate {
     private String phone;
     private String cvFile;
     private CandidateStatus status;
-    private LocalDateTime createdAt;
+
     public Candidate() {}
 
-    public Candidate(int id, String name, String email, String phone, String cvFile, LocalDateTime created) {
+    public Candidate(int id, String name, String email, String phone, String cvFile) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.cvFile = cvFile;
         this.status = CandidateStatus.CREATED;
-        this.createdAt = LocalDateTime.now();;
+        LocalDateTime createdAt = LocalDateTime.now();
     }
 
-    public String applyCandidate(){
+    public boolean applyCandidate(){
         if(id == 0 || name.isEmpty() || email.isEmpty() || phone.isEmpty() || cvFile == null){
-            return "Candidate's data is incomplete!";
+            System.out.println("Candidate's data is incomplete!");
+            return false;
         }
         status = CandidateStatus.APPLIED;
         LocalDateTime appliedAt = LocalDateTime.now();
-        return "Success!";
+        return true;
     }
 
-    public String scheduleInterviewCandidate(){
+    public boolean scheduleInterviewCandidate(){
         if(status != CandidateStatus.APPLIED){
-            return "Candidate's status must be APPLIED!";
+            System.out.println("Candidate's status must be APPLIED!");
+            return false;
         }
         status = CandidateStatus.INTERVIEWED;
-        return "Success!";
+        return true;
     }
 
-    public String hireCandidate(){
+    public boolean hireCandidate(){
         if(status != CandidateStatus.INTERVIEWED){
-            return "Candidate's status must be INTERVIEWED!";
+            System.out.println("Candidate's status must be INTERVIEWED!");
+            return false;
         }
         status = CandidateStatus.HIRED;
-        return "Success!";
+        return true;
     }
 
-    public String rejectCandidate(){
+    public boolean rejectCandidate(){
         if(status != CandidateStatus.INTERVIEWED){
-            return "Candidate's status must be INTERVIEWED!";
+            System.out.println("Candidate's status must be INTERVIEWED!");
+            return false;
         }
         status = CandidateStatus.REJECTED;
-        return "Success!";
+        return true;
     }
 
     public void setId (int id) {
