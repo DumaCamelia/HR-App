@@ -1,4 +1,4 @@
-package domain.interviewsScheduling;
+package domain.assessmentEvaluation;
 
 import domain.recruitment.Candidate;
 
