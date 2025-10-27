@@ -1,4 +1,4 @@
-package domain.assessmentEvaluation;
+package domain.evaluation;
 
 public enum EvaluationType {
     HR_INTERVIEW,

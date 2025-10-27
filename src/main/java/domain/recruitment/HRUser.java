@@ -44,7 +44,4 @@ public class HRUser {
     /*
     Method that registeres a scheduled interview
      */
-    public void scheduleInterview(Candidate candidate, ZonedDateTime time){
-        candidate.scheduleInterview();
-    }
 }

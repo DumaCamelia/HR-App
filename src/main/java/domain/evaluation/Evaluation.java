@@ -1,55 +1,53 @@
 package domain.evaluation;
 
-import domain.recruitment.Candidate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Evaluation {
-    private Candidate candidate;
+    @Id
+    private int id;
+    private String candidateName;
     private int score;
     private String feedback;
     private LocalDateTime evaluatedAt;
+    private EvaluationType evaluationType;
+    private static int lastId = 1;
 
-    public Evaluation() {}
+    public Evaluation(){}
 
-    public Evaluation(Candidate candidate, int score, String feedback, LocalDateTime evaluatedAt) {
-        this.candidate = candidate;
+    public Evaluation(String candidateName, int score, String feedback, EvaluationType evaluationType, LocalDateTime evaluatedAt){
+        id = lastId++;
+        this.candidateName = candidateName;
         this.score = score;
         this.feedback = feedback;
+        this.evaluationType = evaluationType;
         this.evaluatedAt = evaluatedAt;
     }
 
-    public Evaluation(Candidate candidate, int score, String feedback) {
-        this.candidate = candidate;
-        this.score = score;
-        this.feedback = feedback;
-        this.evaluatedAt = LocalDateTime.now();
+    public int getId(){
+        return id;
     }
 
-    public Candidate getCandidate() {
-        return candidate;
+    public String getCandidateName(){
+        return candidateName;
     }
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-    public int getScore() {
+
+    public int getScore(){
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-    public String getFeedback() {
+    public String getFeedback(){
         return feedback;
     }
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+
+    public EvaluationType getEvaluationType(){
+        return evaluationType;
     }
-    public LocalDateTime getEvaluatedAt() {
+
+    public LocalDateTime getEvaluatedAt(){
         return evaluatedAt;
     }
-
-    public void setEvaluatedAt(LocalDateTime evaluatedAt) {
-        this.evaluatedAt = evaluatedAt;
-    }
-
 }
