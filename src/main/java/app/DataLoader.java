@@ -27,8 +27,8 @@ public class DataLoader implements CommandLineRunner {
 
         candidateRepository.findAll().forEach(c -> System.out.println(c.getName() + ": " + c.getStatus()));
 
-        evaluationRepository.save(new Evaluation("Andrei", 100, "Un baiat de nota 10!", EvaluationType.HR_INTERVIEW, LocalDateTime.now()));
-        evaluationRepository.save(new Evaluation("Andrei", 100, "Nimic de reprosat!", EvaluationType.TECHNICAL_INTERVIEW, LocalDateTime.now()));
+        evaluationRepository.save(new Evaluation("Marian", 100, "Un baiat de nota 10!", EvaluationType.HR_INTERVIEW, LocalDateTime.now()));
+        evaluationRepository.save(new Evaluation("Marian", 100, "Nimic de reprosat!", EvaluationType.TECHNICAL_INTERVIEW, LocalDateTime.now()));
         evaluationRepository.findAll().forEach(evaluation -> System.out.println(evaluation.getCandidateName() + "'s evaluation: " + evaluation.getFeedback()));
     }
 }
