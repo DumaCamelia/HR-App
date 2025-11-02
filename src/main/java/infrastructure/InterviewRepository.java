@@ -1,4 +1,4 @@
-package Infrastructure;
+package infrastructure;
 
 import domain.interview.Interview;
 

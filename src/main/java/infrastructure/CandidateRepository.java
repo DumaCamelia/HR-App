@@ -1,4 +1,4 @@
-package Infrastructure;
+package infrastructure;
 
 import domain.recruitment.Candidate;
 import domain.recruitment.CandidateStatus;

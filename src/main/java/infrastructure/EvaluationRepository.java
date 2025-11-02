@@ -1,4 +1,4 @@
-package Infrastructure;
+package infrastructure;
 
 import domain.evaluation.Evaluation;
 import org.springframework.data.jpa.repository.JpaRepository;
