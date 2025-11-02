@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CandidateRepository extends JpaRepository<Candidate, String> {
+public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
     List<Candidate> findByStatus(CandidateStatus status);
     List<Candidate> findById(int id);
+
+    boolean existsByEmail(String email);
+    boolean existsByPhone(String phone);
 }
