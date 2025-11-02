@@ -1,26 +1,26 @@
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\app\DataLoader.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\app\HRApp.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\applicationServices\EvaluationApplicationService.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\applicationServices\InterviewApplicationService.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\applicationServices\NotificationApplicationService.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\applicationServices\NotificationService.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\applicationServices\RecruitmentApplicationService.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\evaluation\Evaluation.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\evaluation\EvaluationRepository.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\evaluation\EvaluationType.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\evaluation\TestQuestion.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\evaluation\TestSubmission.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\interview\Interview.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\interview\Interviewer.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\interview\InterviewRepository.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\interview\InterviewStatus.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\notification\Notification.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\notification\NotificationType.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\notification\RecipientRole.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\Candidate.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\CandidateRepository.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\CandidateStatus.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\HRUser.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\Main.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\Position.java
-C:\Users\meriu\OneDrive\Desktop\HR app\HR app\HR app\src\main\java\domain\recruitment\PositionStatus.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\app\DataLoader.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\app\HRApp.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\applicationServices\EvaluationApplicationService.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\applicationServices\InterviewApplicationService.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\applicationServices\NotificationApplicationService.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\applicationServices\NotificationService.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\applicationServices\RecruitmentApplicationService.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\evaluation\Evaluation.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\evaluation\EvaluationRepository.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\evaluation\EvaluationType.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\evaluation\TestQuestion.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\evaluation\TestSubmission.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\interview\Interview.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\interview\Interviewer.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\interview\InterviewRepository.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\interview\InterviewStatus.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\notification\Notification.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\notification\NotificationType.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\notification\RecipientRole.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\Candidate.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\CandidateRepository.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\CandidateStatus.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\HRUser.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\Main.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\Position.java
+C:\Users\Marius\IdeaProjects\HR-App\src\main\java\domain\recruitment\PositionStatus.java

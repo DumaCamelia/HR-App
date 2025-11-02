@@ -1,11 +1,13 @@
 package domain.interview;
 
 import domain.recruitment.Candidate;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 public class Interviewer {
     private int id;
     private Candidate candidate;
@@ -13,8 +15,6 @@ public class Interviewer {
     private LocalDateTime scheduledAt;
     private InterviewStatus status;
     private List<Interview> scheduledInterviews = new ArrayList<>();
-
-    public Interviewer() {}
 
     public Interviewer(int id, Candidate candidate, Interviewer interviewer, LocalDateTime scheduledAt, InterviewStatus status) {
         this.id = id;
@@ -30,18 +30,6 @@ public class Interviewer {
         this.scheduledAt = scheduledAt;
         this.status = InterviewStatus.SCHEDULED;
     }
-
-    public int getId() { return id; }
-    public Candidate getCandidate() { return candidate; }
-    public Interviewer getInterviewer() { return interviewer; }
-    public LocalDateTime getScheduledAt() { return scheduledAt; }
-    public InterviewStatus getStatus() { return status; }
-
-    public void setId(int id) { this.id = id; }
-    public void setCandidate(Candidate candidate) { this.candidate = candidate; }
-    public void setInterviewer(Interviewer interviewer) { this.interviewer = interviewer; }
-    public void setScheduledAt(LocalDateTime scheduledAt) { this.scheduledAt = scheduledAt; }
-    public void setStatus(InterviewStatus status) { this.status = status; }
 
     public boolean reschedule(LocalDateTime newDate) {
         if (status == InterviewStatus.CANCELLED || status == InterviewStatus.COMPLETED) {

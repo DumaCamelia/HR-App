@@ -62,9 +62,4 @@ public class Candidate {
         status = CandidateStatus.REJECTED;
         return true;
     }
-
-    public String getCVfile() {
-        return cvFile;
-    }
-
 }
