@@ -109,7 +109,7 @@ public class CandidateDomainService {
         return true;
     }
 
-    private boolean isValidTransition(CandidateStatus from, CandidateStatus to) {
+    public boolean isValidTransition(CandidateStatus from, CandidateStatus to) {
         return switch (from) {
             case CREATED -> to == CandidateStatus.APPLIED;
             case APPLIED -> to == CandidateStatus.INTERVIEWED || to == CandidateStatus.REJECTED;
@@ -132,15 +132,6 @@ public class CandidateDomainService {
         return true;
     }
 
-    public boolean validateHiringConditions(Candidate candidate) {
-        if (candidate.getStatus() != CandidateStatus.INTERVIEWED) {
-            System.out.println("Candidate can only be hired after interview.");
-            return false;
-        }
-
-        return true;
-    }
-
     public boolean validateDeletion(Candidate candidate) {
         if (candidate.getStatus() == CandidateStatus.INTERVIEWED || candidate.getStatus() == CandidateStatus.APPLIED) {
             System.out.println("Candidate cannot be deleted.");
@@ -148,5 +139,6 @@ public class CandidateDomainService {
         }
         return true;
     }
+
 
 }

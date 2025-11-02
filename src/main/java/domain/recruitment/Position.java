@@ -26,32 +26,5 @@ public class Position {
         LocalDateTime createdAt = LocalDateTime.now();
     }
 
-    public boolean openPosition() {
-        if(status != PositionStatus.CREATED && status != PositionStatus.CLOSED){
-            System.out.println("The position must be created or closed to open");
-            return false;
-        }
-        this.status = PositionStatus.OPEN;
-        System.out.println("Position opened successfully!");
-        return true;
-    }
 
-    public boolean startRecruitment() {
-        if (this.status != PositionStatus.OPEN) {
-            System.out.println("Recruitment can only start from OPEN state.");
-            return false;
-        }
-        this.status = PositionStatus.IN_RECRUITMENT;
-        return true;
-    }
-
-    public boolean closePosition() {
-        if (this.status == PositionStatus.CLOSED) {
-            System.out.println("Position is already closed.");
-            return false;
-        }
-        this.status = PositionStatus.CLOSED;
-        LocalDateTime closedAt = LocalDateTime.now();
-        return true;
-    }
 }

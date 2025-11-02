@@ -10,6 +10,7 @@ public class Notification {
     private RecipientRole role;
     private String message;
     private int candidateId;
+    private LocalDateTime sentAt;
 
     public Notification(int id, NotificationType type, RecipientRole role, String message, int candidateId) {
         this.id = id;
