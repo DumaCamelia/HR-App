@@ -1,5 +1,6 @@
 package domainServices;
 
+import domain.evaluation.Evaluation;
 import domain.recruitment.Candidate;
 import domain.recruitment.CandidateStatus;
 import infrastructure.CandidateRepository;
@@ -14,9 +15,9 @@ public class CandidateDomainService {
     }
 
     public boolean addCandidate(Candidate candidate) {
-        if (!validateRequiredFields(candidate) ||
-            !validateEmailUniqueness(candidate) ||
-            !validatePhoneUniqueness(candidate) ||
+        if (!validateName(candidate) ||
+            !validateEmail(candidate) ||
+            !validatePhone(candidate) ||
             !validateCV(candidate))
             return false;
 
@@ -33,32 +34,17 @@ public class CandidateDomainService {
 
 
     public boolean validateNewCandidate(Candidate candidate) {
-       return validateRequiredFields(candidate) &&
-        validateEmailUniqueness(candidate) &&
-        validatePhoneUniqueness(candidate) &&
+       return validateName(candidate) &&
+        validateEmail(candidate) &&
+        validatePhone(candidate) &&
         validateCV(candidate);
     }
 
-    private boolean validateRequiredFields(Candidate candidate) {
-        if (candidate.getName() == null || candidate.getName().isBlank()) {
-            System.out.println("Candidate name is required!");
-            return false;
-        }
-
+    private boolean validateEmail(Candidate candidate) {
         if (candidate.getEmail() == null || candidate.getEmail().isBlank()) {
             System.out.println("Candidate email is required!");
             return false;
         }
-
-        if (candidate.getPhone() == null || candidate.getPhone().isBlank()) {
-            System.out.println("Candidate phone number is required!");
-            return false;
-        }
-
-        return true;
-    }
-
-    private boolean validateEmailUniqueness(Candidate candidate) {
         if (candidateRepository.existsByEmail(candidate.getEmail())) {
             System.out.println("A candidate with this email already exists!");
             return false;
@@ -67,7 +53,11 @@ public class CandidateDomainService {
     }
 
 
-    private boolean validatePhoneUniqueness(Candidate candidate) {
+    private boolean validatePhone(Candidate candidate) {
+        if (candidate.getPhone() == null || candidate.getPhone().isBlank()) {
+            System.out.println("Candidate phone number is required!");
+            return false;
+        }
         if (candidateRepository.existsByPhone(candidate.getPhone())) {
             System.out.println("A candidate with this phone number already exists!");
             return false;
@@ -75,7 +65,22 @@ public class CandidateDomainService {
         return true;
     }
 
+    public boolean validateName(Candidate candidate){
+        // Split the full name
+        try {
+            String firstName = candidate.getName().split("")[0];
+            String lastName = candidate.getName().split("")[1];
 
+            // Check if there are any non-letter characters in the name
+            // ex. "Name123" is invalid
+            return firstName.matches("[a-zA-Z]+") && lastName.matches("[a-zA-Z]+");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Caught only if the split full name contains less than 2 names
+            // and means that the last name is missing
+            System.out.println("The candidate's name must be full!");
+            return false;
+        }
+    }
     private boolean validateCV(Candidate candidate) {
         String cv = candidate.getCvFile();
 
