@@ -2,8 +2,10 @@ package domain.recruitment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 @Entity
 public class Candidate {
     @Id
@@ -13,8 +15,6 @@ public class Candidate {
     private String phone;
     private String cvFile;
     private CandidateStatus status;
-
-    public Candidate() {}
 
     public Candidate(int id, String name, String email, String phone, String cvFile) {
         this.id = id;
@@ -63,40 +63,8 @@ public class Candidate {
         return true;
     }
 
-    public void setId (int id) {
-        this.id=id;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setEmail (String email) {
-        this.email=email;
-    }
-    public void setPhone (String phone) {
-        this.phone=phone;
-    }
-    public void setCVfile (String cvFile) {
-        this.cvFile=cvFile;
-    }
-
-
-    public int getId() {
-       return id;
-    }
-    public String getName() {
-       return name;
-    }
-    public String getEmail() {
-       return email;
-    }
-    public String getPhone() {
-       return phone;
-    }
     public String getCVfile() {
         return cvFile;
-    }
-    public CandidateStatus getStatus(){
-       return this.status;
     }
 
 }
