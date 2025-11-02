@@ -1,5 +1,7 @@
-package domain.recruitment;
+package Infrastructure;
 
+import domain.recruitment.Candidate;
+import domain.recruitment.CandidateStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,8 +3,8 @@ package app;
 import domain.evaluation.Evaluation;
 import domain.evaluation.EvaluationType;
 import domain.recruitment.Candidate;
-import domain.recruitment.CandidateRepository;
-import domain.evaluation.EvaluationRepository;
+import Infrastructure.CandidateRepository;
+import Infrastructure.EvaluationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

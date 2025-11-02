@@ -1,7 +1,7 @@
 package applicationServices;
 
 import domain.evaluation.Evaluation;
-import domain.evaluation.EvaluationRepository;
+import Infrastructure.EvaluationRepository;
 import domain.evaluation.EvaluationType;
 import org.springframework.stereotype.Service;
 

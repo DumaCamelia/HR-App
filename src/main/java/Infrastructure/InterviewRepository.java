@@ -1,4 +1,6 @@
-package domain.interview;
+package Infrastructure;
+
+import domain.interview.Interview;
 
 public interface InterviewRepository {
     void save(Interview interview);
