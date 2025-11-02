@@ -22,6 +22,8 @@ public class Interview {
         this.status = InterviewStatus.SCHEDULED;
     }
 
+    /*
+    TODO: Move this logic to InterviewApplicationService
     public boolean StartInterview(){
         if(status != InterviewStatus.SCHEDULED){
             System.out.println("The interview must be scheduled!");
@@ -39,4 +41,5 @@ public class Interview {
         status = InterviewStatus.FINISHED;
         return true;
     }
+    */
 }

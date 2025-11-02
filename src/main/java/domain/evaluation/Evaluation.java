@@ -1,5 +1,6 @@
 package domain.evaluation;
 
+import domain.recruitment.Candidate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -11,16 +12,16 @@ import java.time.LocalDateTime;
 public class Evaluation {
     @Id
     private int id;
-    private String candidateName;
+    private Candidate candidate;
     private int score;
     private String feedback;
     private LocalDateTime evaluatedAt;
     private EvaluationType evaluationType;
     private static int lastId = 1;
 
-    public Evaluation(String candidateName, int score, String feedback, EvaluationType evaluationType, LocalDateTime evaluatedAt){
+    public Evaluation(Candidate candidate, int score, String feedback, EvaluationType evaluationType, LocalDateTime evaluatedAt){
         id = lastId++;
-        this.candidateName = candidateName;
+        this.candidate = candidate;
         this.score = score;
         this.feedback = feedback;
         this.evaluationType = evaluationType;

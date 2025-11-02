@@ -6,21 +6,6 @@ import domain.recruitment.Candidate;
 import java.time.LocalDateTime;
 
 public class EvaluationDomainService {
-    // CandidateDomainService required mainly for validating the candidate's name
-    private final CandidateDomainService candidateDomainService;
-
-    public EvaluationDomainService(CandidateDomainService candidateDomainService){
-        this.candidateDomainService = candidateDomainService;
-    }
-
-    public boolean validateId(Evaluation evaluation){
-        int id = evaluation.getId();
-        if(id < 0){
-            System.out.println("ID must be a positive integer!");
-            return false;
-        }
-        return true;
-    }
     public boolean validateScore(Evaluation evaluation){
         // The score should be an integer between 0 and 100
         int score = evaluation.getScore();
@@ -69,9 +54,7 @@ public class EvaluationDomainService {
 
     public boolean validateEvaluation(Evaluation evaluation) {
         // Use all the other validations together
-        return     validateId(evaluation)
-                && candidateDomainService.validateName(new Candidate(0, evaluation.getCandidateName(), "", "", ""))
-                && validateScore(evaluation)
+        return     validateScore(evaluation)
                 && validateFeedback(evaluation)
                 && validateEvaluatedAt(evaluation)
                 && validateEvaluationType(evaluation);

@@ -6,34 +6,22 @@ import infrastructure.CandidateRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CandidateDomainService {
+public class CandidateDomainService{
     private final CandidateRepository candidateRepository;
+    private final PhoneValidator phoneValidator;
 
-    public CandidateDomainService(CandidateRepository candidateRepository) {
+    public CandidateDomainService(CandidateRepository candidateRepository, PhoneValidator phoneValidator) {
         this.candidateRepository = candidateRepository;
+        this.phoneValidator = phoneValidator;
     }
 
     public boolean validateCandidate(Candidate candidate) {
-        if (!validateName(candidate) ||
-            !validateEmail(candidate) ||
-            !validatePhone(candidate) ||
-            !validateCV(candidate))
-            return false;
-        return true;
+        return  validateEmailUnicity(candidate) &&
+                validatePhoneUnicity(candidate) &&
+                validateCV(candidate);
     }
 
-    public boolean validateNewCandidate(Candidate candidate) {
-       return validateName(candidate) &&
-        validateEmail(candidate) &&
-        validatePhone(candidate) &&
-        validateCV(candidate);
-    }
-
-    private boolean validateEmail(Candidate candidate) {
-        if (candidate.getEmail() == null || candidate.getEmail().isBlank()) {
-            System.out.println("Candidate email is required!");
-            return false;
-        }
+    private boolean validateEmailUnicity(Candidate candidate) {
         if (candidateRepository.existsByEmail(candidate.getEmail())) {
             System.out.println("A candidate with this email already exists!");
             return false;
@@ -41,12 +29,7 @@ public class CandidateDomainService {
         return true;
     }
 
-
-    private boolean validatePhone(Candidate candidate) {
-        if (candidate.getPhone() == null || candidate.getPhone().isBlank()) {
-            System.out.println("Candidate phone number is required!");
-            return false;
-        }
+    private boolean validatePhoneUnicity(Candidate candidate) {
         if (candidateRepository.existsByPhone(candidate.getPhone())) {
             System.out.println("A candidate with this phone number already exists!");
             return false;
@@ -54,22 +37,6 @@ public class CandidateDomainService {
         return true;
     }
 
-    public boolean validateName(Candidate candidate){
-        // Split the full name
-        try {
-            String firstName = candidate.getName().split("")[0];
-            String lastName = candidate.getName().split("")[1];
-
-            // Check if there are any non-letter characters in the name
-            // ex. "Name123" is invalid
-            return firstName.matches("[a-zA-Z]+") && lastName.matches("[a-zA-Z]+");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            // Caught only if the split full name contains less than 2 names
-            // and means that the last name is missing
-            System.out.println("The candidate's name must be full!");
-            return false;
-        }
-    }
     private boolean validateCV(Candidate candidate) {
         String cv = candidate.getCvFile();
 
@@ -108,12 +75,12 @@ public class CandidateDomainService {
     }
 
     public boolean validateReadyForInterview(Candidate candidate) {
-        if (candidate.getCvFile() == null || candidate.getCvFile().isBlank()) {
+        if (validateCV(candidate)) {
             System.out.println("Candidate must have a CV before the interview.");
             return false;
         }
 
-        if (candidate.getPhone() == null || candidate.getPhone().isBlank()) {
+        if (phoneValidator.validatePhone(candidate.getPhone())) {
             System.out.println("Candidate must have a phone number before the interview.");
             return false;
         }

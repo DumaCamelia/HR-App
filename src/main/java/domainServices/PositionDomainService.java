@@ -6,15 +6,6 @@ import domain.recruitment.PositionStatus;
 import java.time.LocalDateTime;
 
 public class PositionDomainService {
-
-    public boolean validateId(Position position) {
-        if (position.getId() <= 0) {
-            System.out.println("Position ID must be a positive integer!");
-            return false;
-        }
-        return true;
-    }
-
     public boolean validateTitle(Position position) {
         if (position.getTitle() == null || position.getTitle().isBlank()) {
             System.out.println("Position title cannot be empty!");
@@ -75,8 +66,7 @@ public class PositionDomainService {
     }
 
     public boolean validatePosition(Position position) {
-        return validateId(position)
-                && validateTitle(position)
+        return     validateTitle(position)
                 && validateDescription(position)
                 && validateRequirements(position)
                 && validateStatus(position)

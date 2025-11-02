@@ -10,27 +10,18 @@ import java.util.List;
 @Data
 public class Interviewer {
     private int id;
-    private Candidate candidate;
-    private Interviewer interviewer;
-    private LocalDateTime scheduledAt;
-    private InterviewStatus status;
+    private String name;
+    private String email;
     private List<Interview> scheduledInterviews = new ArrayList<>();
 
-    public Interviewer(int id, Candidate candidate, Interviewer interviewer, LocalDateTime scheduledAt, InterviewStatus status) {
+    public Interviewer(int id, String name, String email) {
         this.id = id;
-        this.candidate = candidate;
-        this.interviewer = interviewer;
-        this.scheduledAt = scheduledAt;
-        this.status = status;
+        this.name = name;
+        this.email = email;
     }
 
-    public Interviewer(Candidate candidate, Interviewer interviewer, LocalDateTime scheduledAt) {
-        this.candidate = candidate;
-        this.interviewer = interviewer;
-        this.scheduledAt = scheduledAt;
-        this.status = InterviewStatus.SCHEDULED;
-    }
-
+    /*
+    TODO: Move this logic to InterviewerApplicationService
     public boolean reschedule(LocalDateTime newDate) {
         if (status == InterviewStatus.CANCELLED || status == InterviewStatus.COMPLETED) {
             System.out.println("Cannot reschedule a cancelled or completed interview.");
@@ -52,6 +43,6 @@ public class Interviewer {
     public void addInterview(Interview interview) {
         scheduledInterviews.add(interview);
     }
-
+*/
 
 }

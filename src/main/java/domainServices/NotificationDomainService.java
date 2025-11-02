@@ -7,15 +7,6 @@ import domain.notification.RecipientRole;
 import java.time.LocalDateTime;
 
 public class NotificationDomainService {
-
-    public boolean validateId(Notification notification) {
-        if (notification.getId() <= 0) {
-            System.out.println("Notification ID must be a positive integer!");
-            return false;
-        }
-        return true;
-    }
-
     public boolean validateType(Notification notification) {
         NotificationType type = notification.getType();
         if (type == null) {
@@ -60,19 +51,9 @@ public class NotificationDomainService {
         return true;
     }
 
-    public boolean validateCandidateId(Notification notification) {
-        if (notification.getCandidateId() <= 0) {
-            System.out.println("Candidate ID must be a positive integer!");
-            return false;
-        }
-        return true;
-    }
-
     public boolean validateNotification(Notification notification) {
-        return validateId(notification)
-                && validateType(notification)
+        return     validateType(notification)
                 && validateRole(notification)
-                && validateMessage(notification)
-                && validateCandidateId(notification);
+                && validateMessage(notification);
     }
 }
