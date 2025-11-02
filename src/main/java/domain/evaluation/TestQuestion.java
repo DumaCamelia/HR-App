@@ -2,6 +2,8 @@ package domain.evaluation;
 
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 public class TestQuestion {
     private int id;
@@ -15,13 +17,5 @@ public class TestQuestion {
         this.text = text;
         this.correctAnswer = correctAnswer;
         this.points = points;
-    }
-
-
-    public boolean isCorrect(String value) {
-        if (correctAnswer == value){
-            return true;
-        }
-        return false;
     }
 }

@@ -6,6 +6,7 @@ import domain.recruitment.Candidate;
 import java.time.LocalDateTime;
 
 public class EvaluationDomainService {
+    // CandidateDomainService required mainly for validating the candidate's name
     private final CandidateDomainService candidateDomainService;
 
     public EvaluationDomainService(CandidateDomainService candidateDomainService){

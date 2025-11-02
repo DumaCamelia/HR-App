@@ -19,6 +19,8 @@ public class TestSubmission {
         this.submittedAt = LocalDateTime.now();
     }
 
+    /*
+    TODO: Move this logic to TestSubmissionApplicationService
     public void addAnswer(TestQuestion question, String answer) {
         answers.put(question, answer);
     }
@@ -33,5 +35,6 @@ public class TestSubmission {
     public boolean isComplete(int totalQuestions) {
         return answers.size() == totalQuestions;
     }
+     */
 
 }
