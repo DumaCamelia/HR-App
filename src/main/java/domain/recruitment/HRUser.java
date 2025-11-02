@@ -15,9 +15,4 @@ public class HRUser {
         this.name = name;
         this.email = email;
     }
-
-
-    public void scheduleInterview(Candidate candidate, ZonedDateTime time){
-        candidate.scheduleInterviewCandidate();
-    }
 }
