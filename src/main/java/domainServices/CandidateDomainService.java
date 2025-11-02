@@ -1,6 +1,5 @@
 package domainServices;
 
-import domain.evaluation.Evaluation;
 import domain.recruitment.Candidate;
 import domain.recruitment.CandidateStatus;
 import infrastructure.CandidateRepository;
@@ -14,24 +13,14 @@ public class CandidateDomainService {
         this.candidateRepository = candidateRepository;
     }
 
-    public boolean addCandidate(Candidate candidate) {
+    public boolean validateCandidate(Candidate candidate) {
         if (!validateName(candidate) ||
             !validateEmail(candidate) ||
             !validatePhone(candidate) ||
             !validateCV(candidate))
             return false;
-
-        candidateRepository.save(candidate);
         return true;
     }
-
-    public boolean deleteCandidate(Candidate candidate) {
-        if (!validateDeletion(candidate)) return false;
-
-        candidateRepository.delete(candidate);
-        return true;
-    }
-
 
     public boolean validateNewCandidate(Candidate candidate) {
        return validateName(candidate) &&
@@ -139,6 +128,4 @@ public class CandidateDomainService {
         }
         return true;
     }
-
-
 }
