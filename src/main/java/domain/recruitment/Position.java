@@ -1,8 +1,10 @@
 package domain.recruitment;
 
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class Position {
 
     private int id;
@@ -13,9 +15,6 @@ public class Position {
 
     private LocalDateTime createdAt;
     private LocalDateTime closedAt;
-
-
-    protected Position() {}
 
 
     public Position(int id, String title, String description, String requirements) {
@@ -54,36 +53,5 @@ public class Position {
         this.status = PositionStatus.CLOSED;
         LocalDateTime closedAt = LocalDateTime.now();
         return true;
-    }
-
-    public void setId (int id) {
-        this.id=id;
-    }
-    public void setTitle (String title) {
-        this.title=title;
-    }
-    public void setDescription (String description) {
-        this.description=description;
-    }
-    public void setRequirements(String requirements) {
-        this.requirements=requirements;
-    }
-
-
-
-    public PositionStatus getStatus() {
-        return status;
-    }
-    public int getId() {
-        return id;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public String getRequirements() {
-        return requirements;
     }
 }
